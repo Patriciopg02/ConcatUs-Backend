@@ -10,7 +10,7 @@ const mailSettings = require("../nodemailer/nodemailer");
 
 export const createPayment =async ( req: Request, res: Response)=>{
     const {email} = req.body 
-    console.log(email)
+    // console.log(email)
     const order = {
         intent: 'CAPTURE',
         purchase_units:[
