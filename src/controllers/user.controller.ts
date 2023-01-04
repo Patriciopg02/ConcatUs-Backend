@@ -344,7 +344,7 @@ export const addFavorite = async (req: Request, res: Response) => {
 }
 
 export const shops = async (_req: Request, res: Response) => {
-  console.log("holas")
+  // console.log("holas")
   const users = await userSchema.find({}) 
   // console.log(users)
   const shops = users.map((e:any)=>{
