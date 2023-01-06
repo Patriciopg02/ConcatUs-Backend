@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addEvent, deleteEvent, findEvent, findEventById, addEventParticipant, findEventByAuthor } from "../controllers/events.controllers";
+import { addEvent, deleteEvent, findEvent, findEventById, findEventByAuthor } from "../controllers/events.controllers";
 const router = Router()
 
 router.route('')
@@ -11,7 +11,7 @@ router.route('')
 
 router.route('/:id')
     .get(findEventById)
-    .put(addEventParticipant)
+    // .put(addEventParticipant)
 
 
 router.route('/author/:author')

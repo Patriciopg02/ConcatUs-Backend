@@ -187,44 +187,46 @@ export const deleteEvent = async (req: Request, res: Response) => {
   }
 };
 
-export const addEventParticipant = async (req: Request, res: Response) => {
-  try {
-    const { idEvent } = req.params;
-    const { idUser } = req.body;
+// export const addEventParticipant = async (req: Request, res: Response) => {
+//   try {
+//     const { idEvent } = req.params;
+//     const { idUser } = req.body;
 
-    const user = await userSchema.findOne({ _id: idUser });
-    const currentEvent = await eventSchema.findOne({ _id: idEvent });
+//     const user = await userSchema.findOne({ _id: idUser });
+//     const currentEvent = await eventSchema.findOne({ _id: idEvent });
 
     
-    if (user) {
-      let assistInfo = {
-        name: user.name,
-        email: user.email,
-        avatar: user.image
-      }
-      currentEvent.participants.push(assistInfo);
-      currentEvent.save();
-      console.log(currentEvent);
+//     if (user) {
+//       let assistInfo = {
+//         name: user.name,
+//         email: user.email,
+//         avatar: user.image,
+//         follows: user.follows,
+//         followeds: user.followeds
+//       }
+//       currentEvent.participants.push(assistInfo);
+//       currentEvent.save();
+//       console.log(currentEvent);
 
-      const eventUpdated = await eventSchema.findByIdAndUpdate(
-        { _id: idEvent },
-        currentEvent,
-        { new: true }
-      );
+//       const eventUpdated = await eventSchema.findByIdAndUpdate(
+//         { _id: idEvent },
+//         currentEvent,
+//         { new: true }
+//       );
 
-      return res.status(200).json({
-        data: eventUpdated,
-      });
-    }
+//       return res.status(200).json({
+//         data: eventUpdated,
+//       });
+//     }
 
-    return res.status(404).json({
-      data: currentEvent,
-      msg: `User don't exist`,
-    });
-  } catch (error) {
-    return res.status(500).json({
-      msg: `An error ocurred (┬┬﹏┬┬)`,
-      error,
-    });
-  }
-};
+//     return res.status(404).json({
+//       data: currentEvent,
+//       msg: `User don't exist`,
+//     });
+//   } catch (error) {
+//     return res.status(500).json({
+//       msg: `An error ocurred (┬┬﹏┬┬)`,
+//       error,
+//     });
+//   }
+// };

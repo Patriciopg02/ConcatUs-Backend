@@ -99,7 +99,9 @@ export const asistEvents = async (req: Request, res: Response) => {
       let assistInfo = {
         name: user.name,
         email: user.email,
-        avatar: user.image
+        avatar: user.image,
+        follows: user.follows,
+        followeds: user.followeds
       }
       event.participants.push(assistInfo);
       user.asistEvent.push(eventId);
